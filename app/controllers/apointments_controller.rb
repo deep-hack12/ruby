@@ -2,7 +2,7 @@ class ApointmentsController < ApplicationController
 skip_before_action :verify_authenticity_token
   def index 
     @apointment=Apointment.all
-      render json: @apointment.as_json(include: [:doctor,:patiant])
+      render json: @apointment.as_json(include: [:doctor,:patiant]), status: :ok
     end
     def new
       @apointment=Apointment.new
