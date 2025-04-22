@@ -1,5 +1,5 @@
 class AddDoctorToApointment < ActiveRecord::Migration[8.0]
   def change
-    add_reference :apointments, :doctor, null: false, foreign_key: true
+    add_reference :apointments, :doctor, foreign_key: true
   end
 end

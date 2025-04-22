@@ -1,6 +1,6 @@
 class DoctorsController < ApplicationController
     skip_before_action :verify_authenticity_token
-    def index 
+    def index
       @doctor=Doctor.all
           render json: @doctor
     end
@@ -21,16 +21,15 @@ class DoctorsController < ApplicationController
       end
     end
     def create
-      @doctor = Doctors.new(user_params)    
+      @doctor = Doctors.new(user_params)
       if @doctor.save
         render json: @doctor
-      else 
-        render json: {message: "Check your entry"}, status: :unprocessable_entity
+      else
+        render json: { message: "Check your entry" }, status: :unprocessable_entity
       end
     end
   private
     def user_params
       params.require(:doctor).permit(:title, :number)
     end
-  end
-
+end
